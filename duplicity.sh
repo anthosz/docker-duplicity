@@ -66,9 +66,6 @@ then
       ;;
     'VAULT')
       if [[ -z ${VAULT_ADDR} ]]; then echo -e "${REDCOLOR}Vault address not specified... Exiting...${WHITECOLOR}"; exit 1; fi
-      echo -ne "${YELLOWCOLOR}${PRIVATE_KEY_SOURCE} Getting secret id in progress... ${WHITECOLOR}"
-      VAULT_SECRET_ID=`VAULT_TOKEN=${VAULT_TOKEN} vault unwrap -field=secret_id ${VAULT_SECRET_ID}`
-      check_rc $?
       echo -ne "${YELLOWCOLOR}${PRIVATE_KEY_SOURCE} Getting token in progress... ${WHITECOLOR}"
       VAULT_TOKEN=`vault write -field=token auth/approle/login role_id="${VAULT_ROLE_ID}" secret_id="${VAULT_SECRET_ID}"`
       check_rc $?
