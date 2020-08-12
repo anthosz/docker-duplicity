@@ -100,7 +100,7 @@ case $1 in
   'restore' )
     if [[ ! -d "${TARGET}" ]]; then echo -e "${REDCOLOR}Target path not found... Exiting...${WHITECOLOR}"; exit 1; fi
     if [ -z "${2}" ]; then echo -e "${REDCOLOR}Please specify a restore time (like 2d for 2 days ago)... Exiting...${WHITECOLOR}"; exit 1; fi
-    echo -e "${ORANGECOLOR}/!\ Launching restoration in 30 seconds... /!\${WHITECOLOR}"
+    echo -e "${ORANGECOLOR}/!\ Launching restoration in 30 seconds... /!\ ${WHITECOLOR}"
     echo -e "${BLUECOLOR} - SOURCE: ${SOURCE_DIRECTORY}${WHITECOLOR}"
     echo -e "${BLUECOLOR} - TARGET: ${TARGET}${WHITECOLOR}"
     sleep 30
